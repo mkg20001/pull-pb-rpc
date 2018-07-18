@@ -5,7 +5,7 @@ const lp = require('pull-length-prefixed')
 const Handshake = require('pull-handshake')
 const promisify = require('promisify-es6')
 
-function boolOr (b1, b2) {
+function boolOr (b1, b2) { // [false, undef] => false; [false, true] => false
   if (b1 != null) { return Boolean(b1) }
   if (b2 != null) { return Boolean(b2) }
   return false
@@ -28,6 +28,24 @@ module.exports = function (opts, handshakeFinish) {
 
     // length prefixed
     readLP: promisify((max, timeout, fixed, cb) => {
+      if (typeof fixed === 'function') {
+        cb = fixed
+        fixed = undefined
+      }
+
+      if (typeof timeout === 'function') {
+        cb = timeout
+        fixed = undefined
+        timeout = undefined
+      }
+
+      if (typeof max === 'function') {
+        cb = max
+        fixed = undefined
+        timeout = undefined
+        max = undefined
+      }
+
       let opt = {
         fixed: boolOr(fixed, opts.lpFixed),
         maxLength: max || opts.lpMaxLength
@@ -46,7 +64,7 @@ module.exports = function (opts, handshakeFinish) {
     },
 
     // raw bytes
-    readRaw: promisify((bytes, timeout, cb) => handshake.read(bytes, timeout, cb)),
+    readRaw: promisify((bytes, timeout, cb) => handshake.read(bytes, timeout || opts.timeout, cb)), // note that if no user timeout then timeout = cb which makes handshake use default timeout aka opts.timeout. "|| opts.timeout" only does something if timeout is falsy
     writeRaw: (bytes) => {
       handshake.write(bytes)
     },
