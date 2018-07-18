@@ -1,6 +1,6 @@
 {
   "name": "pull-pb-rpc",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Protocol Buffers RPC utility module for pull-streams",
   "main": "src/index.js",
   "scripts": {
