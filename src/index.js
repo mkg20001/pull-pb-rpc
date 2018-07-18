@@ -15,6 +15,7 @@ module.exports = function (opts, handshakeFinish) {
   const shake = Handshake(opts, handshakeFinish)
   const {handshake} = shake
 
+  let rested = false
   const rpc = {
     // protocol buffers
     read: async (proto, max, timeout, fixed) => {
@@ -52,7 +53,11 @@ module.exports = function (opts, handshakeFinish) {
 
     // util
     abort: handshake.abort,
-    rest: handshake.rest
+    rest: () => {
+      rested = true
+      return handshake.rest()
+    },
+    rested: () => rested
   }
 
   return {
