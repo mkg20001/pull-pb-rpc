@@ -1,0 +1,32 @@
+{
+  "name": "pull-pb-rpc",
+  "version": "0.0.1",
+  "description": "Protocol Buffers RPC utility module for pull-streams",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pull-stream",
+    "protocol-buffers",
+    "rpc",
+    "length-prefixed"
+  ],
+  "author": "Maciej Krüger <mkg20001@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "promisify-es6": "^1.0.3",
+    "pull-handshake": "^1.1.4",
+    "pull-length-prefixed": "^1.3.1",
+    "pull-stream": "^3.6.8"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkg20001/pull-pb-rpc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mkg20001/pull-pb-rpc/issues"
+  },
+  "homepage": "https://github.com/mkg20001/pull-pb-rpc#readme"
+}
