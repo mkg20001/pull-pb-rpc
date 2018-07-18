@@ -38,5 +38,8 @@
   "bugs": {
     "url": "https://github.com/mkg20001/pull-pb-rpc/issues"
   },
-  "homepage": "https://github.com/mkg20001/pull-pb-rpc#readme"
+  "homepage": "https://github.com/mkg20001/pull-pb-rpc#readme",
+  "contributors": [
+    "Maciej Krüger <mkg20001@gmail.com>"
+  ]
 }
