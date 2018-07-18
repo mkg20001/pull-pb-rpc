@@ -28,16 +28,16 @@ Constructor:
 - `opts.lpFixed`: `Boolean` Whether to use fixed length-prefixes instead of varInt ones
 - `opts.lpMaxLength`: `Number` Default maximum message length in bytes for length-prefixed reads
 
-`.read(Proto[, max, timeout, fixed])`:
-Read a ProtocolBuffers message
-- `Proto`: ProtocolBuffers Protocol as returned by `protons`
+`.read(Proto[, max, timeout, fixed])`
+Read a Protocol Buffers message
+- `Proto`: Protocol Buffers Protocol as returned by `protons`
 - `max`: `Number` Maximum message length in bytes
 - `timeout`: `Number` Timeout for reading
 - `fixed`: `Boolean` Flag whether to use fixed length-prefixes instead of varInt ones
 
 `.write(Proto, data[, fixed])`
-Write a ProtocolBuffers message
-- `Proto`: ProtocolBuffers Protocol as returned by `protons`
+Write a Protocol Buffers message
+- `Proto`: Protocol Buffers Protocol as returned by `protons`
 - `data`: `Object` Message payload
 - `fixed`: `Boolean` Flag whether to use fixed length-prefixes instead of varInt ones
 
@@ -50,9 +50,9 @@ Write a ProtocolBuffers message
 - `data`: `Buffer` Message payload
 - `fixed`: `Boolean` Flag whether to use fixed length-prefixes instead of varInt ones
 
-`.read(bytes[, timeout])` Read bytes
+`.readRaw(bytes[, timeout])` Read bytes
 - `bytes`: `Number` Amount of bytes to read
 - `timeout`: `Number` Timeout for reading
 
-`.write(data)` Write bytes
+`.writeRaw(data)` Write bytes
 - `data`: `Buffer` Message payload
