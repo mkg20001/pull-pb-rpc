@@ -15,6 +15,10 @@ module.exports = function (opts, handshakeFinish) {
   const shake = Handshake(opts, handshakeFinish)
   const {handshake} = shake
 
+  if (typeof opts === 'function' || !opts) {
+    opts = {}
+  }
+
   let rested = false
   const rpc = {
     // protocol buffers
